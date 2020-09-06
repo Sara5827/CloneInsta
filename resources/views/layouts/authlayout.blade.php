@@ -77,7 +77,7 @@
 
                 @yield('form')
 
-				<div class="login100-more" style="background-image: url('{{ asset('img/bg-01.jpg') }}');"></div>
+				
 			</div>
 		</div>
 	</div>

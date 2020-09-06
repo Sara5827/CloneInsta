@@ -5,9 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Profile</div>
-
-                <div class="card-body">
+                <div class="card-body shado">
+                    <h2 class="text-center edit m-4">Edit Profile</h2>
                     <form method="POST" action="/profile/{{ $user->username }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
@@ -103,7 +102,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btnedit w-100">
                                     {{ __('Submit') }}
                                 </button>
                             </div>

@@ -2,6 +2,126 @@
 
 @section('content')
 <div class="container">
+  
+
+    {{-- Slide --}}
+   <h5 class='text-secondary'>Suggestions For You</h5>
+    <div class="container px-5 mb-4 slidecolor">
+      
+
+        {{-- <hr class=""> --}}
+
+        <!--Carousel Wrapper-->
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+        <!--Controls-->
+        {{-- <div class="controls-top">
+            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+        </div> --}}
+        <!--/.Controls-->
+        
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+            <li data-target="#multi-item-example" data-slide-to="1"></li>
+            <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+
+
+
+
+            <!-- Suggestion Profiles-->           
+                        <div class="carousel-item active">
+                                <div class="row">
+                                @foreach ($sugg_users as $sugg_user)
+                                    @if ($loop->iteration == 7)
+                                        @break
+                                    @endif
+                                    <div class="m-4">
+                                    <div class="zoom1 containerslide">
+                                        <a href="/profile/{{$sugg_user->username}}" style="width: 32px; height: 32px;">
+                                        <img class="rounded-circle imageslide" width="100px" src="{{ asset($sugg_user->profile->getProfileImage()) }}"
+                                            alt="Card image cap">
+                                            
+                                        <div class="middleslide">
+                                            <div class="textslide">{{ $sugg_user->name}}</div>
+                                        </div>
+                                        </a>
+                                        
+                                    </div>
+                                    </div>
+                                @endforeach 
+                                </div>
+                        </div>
+            <!--Second slide-->
+            <div class="carousel-item">
+
+                <div class="row">
+                    @foreach ($sugg_users as $sugg_user)
+                @if ($loop->iteration  < 13)
+                        @continue
+                    @endif
+                    <div class="m-4">
+                    <div class="zoom1 containerslide">
+                        <a href="/profile/{{$sugg_user->username}}" style="width: 32px; height: 32px;">
+                            <img class="rounded-circle imageslide" width="100px" src="{{ asset($sugg_user->profile->getProfileImage()) }}"
+                            alt="Card image cap">
+                            <div class="middleslide">
+                                <div class="textslide">{{ $sugg_user->name}}</div>
+                            </div>
+                        </a>
+                    </div>
+                    </div>
+                    @if ($loop->iteration > 17)
+                        @break
+                    @endif
+                    @endforeach 
+                </div>
+            </div>
+            <!--/.Second slide-->
+
+            <!--Third slide-->
+            <div class="carousel-item">
+                <div class="row">
+                    @foreach ($sugg_users as $sugg_user)
+                    @if ($loop->iteration  < 7)
+                        @continue
+                    @endif
+                    <div class="m-4">
+                    <div class="zoom1 containerslide">
+                        <a href="/profile/{{$sugg_user->username}}" style="width: 32px; height: 32px;">
+                            <img class="rounded-circle imageslide" width="100px" src="{{ asset($sugg_user->profile->getProfileImage()) }}"
+                            alt="Card image cap">
+                             <div class="middleslide">
+                                <div class="textslide">{{ $sugg_user->name}}</div>
+                            </div>
+                        </a>
+                    </div>
+                    </div>
+                    @if ($loop->iteration > 11)
+                        @break
+                    @endif
+                    @endforeach 
+                </div>
+            </div>
+            <!--/.Third slide-->
+
+        </div>
+        <!--/.Slides-->
+
+        {{-- <hr class=""> --}}
+        </div>
+        <!--/.Carousel Wrapper-->
+
+
+    </div>
+
+    {{-- end slide --}}
     <div class="row justify-content-center">
 
         {{-- Main section --}}
@@ -36,7 +156,6 @@
                                 <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                                 <div class="modal-content">
                                     <ul class="list-group">
-                                        <a href="#"><li class="btn list-group-item">Unfollow</li></a>
                                         <a href="/p/{{ $post->id }}"><li class="btn list-group-item">Go to post</li></a>
                                         <a href="#"><li class="btn list-group-item" data-dismiss="modal">Cancel</li></a>
                                     </ul>
@@ -50,9 +169,9 @@
                     <img class="card-img" src="{{ asset("storage/$post->image") }}" alt="post image" style="max-height: 767px">
 
                     <!-- Card Body -->
-                    <div class="card-body px-3 py-2">
+                    <div class="px-4 ">
 
-                        <div class="d-flex flex-row">
+                        <div class="d-flex flex-row justify-content-between my-2">
                             <form method="POST" action="{{url()->action('LikeController@update2', ['like'=>$post->id])}}">
                                 @csrf
                                 @if (true)
@@ -114,8 +233,9 @@
                                 </div>
 
                             </form>
+                             <p class="card-text text-muted">{{ $post->created_at->diffForHumans() }}</p>
                         </div>
-                        <div class="flex-row">
+                        
 
                             <!-- Likes -->
                             @if (count($post->like->where('State',true)) > 0)
@@ -125,7 +245,7 @@
                             @endif
 
                             {{-- Post Caption --}}
-                            <p class="card-text mb-1">
+                            <p class="card-text my-2">
                                 <a href="/profile/{{$post->user->username}}" class="my-0 text-dark text-decoration-none">
                                     <strong>{{ $post->user->name }}</strong>
                                 </a>
@@ -133,19 +253,14 @@
                             </p>
 
                             <!-- Comment -->
-                           
+                             @comments(['model' => $post]) 
                             <!-- Created At  -->
-                            <p class="card-text text-muted">{{ $post->created_at->diffForHumans() }}</p>
-                        </div>
+                           
+                       
                     </div>
 
-                    <!-- Card Footer -->
-                    <div class="card-footer">
-                       
-                        @comments(['model' => $post])
-                       
-
-                    </div>
+                   
+                    
 
                 </div>
 
@@ -184,36 +299,17 @@
 
             <!-- Suggestions -->
             <div class='mb-4'>
-                <h6 class='text-secondary'>Suggestions For You</h5>
+            
 
-                <!-- Suggestion Profiles-->
-                @foreach ($sugg_users as $sugg_user)
-                    @if ($loop->iteration == 6)
-                        @break
-                    @endif
-                    <div class='suggestions p-2'>
-                        <div class="d-flex align-items-center ">
-                            <a href="/profile/{{$sugg_user->username}}" style="width: 32px; height: 32px;">
-                                <img src="{{ asset($sugg_user->profile->getProfileImage()) }}" class="rounded-circle w-100">
-                            </a>
-                            <div class='d-flex flex-column pl-3'>
-                                <a href="/profile/{{$sugg_user->username}}" class='h6 m-0 text-dark text-decoration-none' >
-                                    <strong>{{ $sugg_user->name}}</strong>
-                                </a>
-                                <small class="text-muted">New to Instagram </small>
-                            </div>
-                            <a href="#" class='ml-auto text-info text-decoration-none'>
-                                Follow
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
+                    <div class='text-center' style='color: #797B76;'>
+                       In this projet I am going to build an Instagram-Based with Laravel and Boostrap 😄.
+                     </div>  
 
             </div>
 
             <!-- CopyRight -->
-            <div>
-                <span style='color: #a6b3be;'>© 2020 InstaClone from KhalidLam</span>
+            <div class="text-center">
+                <span style='color: #a6b3be;'>© 2020| Instagram building by ❤. <a href=""> SaraOuldjelloul </a></span>
             </div>
         </div>
 

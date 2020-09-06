@@ -16999,4 +16999,195 @@ readers do not read off random characters that represent icons */
   position: static;
   width: auto;
 }
+/* change design */
+.shado{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.edit{
+  font-family: Georgia, serif;
+ font-size: xx-large;
+}
+.form-control{
+   border-radius: 30px;
+   background-color: #EDF0F3;
+}
+.btnedit{
+  border-radius: 30px;
+}
+.col-form-label{
+  font-family: Georgia, serif;
+}
+#postimage{
+  background-image: url("https://media.gettyimages.com/vectors/blue-abstract-background-vector-id1007179744?b=1&k=6&m=1007179744&s=612x612&w=0&h=W8aEpuNawolXJrRXJscm1hS6GmmFWNigtqa6dXfgmAY="); 
+   background-repeat: no-repeat;
+   background-size: 300% 100%;
+  
+
+}
+
+#imgpost{
+   opacity: 1.0!important;
+      box-shadow: 0 30px 20px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+#show-info{
+  background-color: #E8F0FE;
+}
+#submitbtn{
+    border-radius: 30%;
+}
+#espace{
+    
+    padding: 0!important;
+} 
+.msgtest{
+  background-color:#E8F0FE;
+  padding: 5px;
+  padding-left:20px;
+   border-radius: 30px;
+}       
+.modal-title{
+  font-family:Georgia, serif;
+  text-align: center!important;
+}
+.modal-header{
+   background-color:#E8F0FE;
+    text-align: center!important;
+}
+.text-uppercase{
+   border-radius: 30px;
+}
+.alert-warning{
+   border-radius: 30px;
+}
+.carousel-indicators{
+  margin: 0 auto!important;
+}
+#profilcolor{
+  background-color: #D7D4F0;
+   
+}
+.imgshado{
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.4), 0 4px 9px 0 rgba(0, 0, 0, 0.4);
+}
+#commenttest{
+  margin: 0 auto!important;
+}
+.slidecolor{
+  /* background-color: #C0C4C5; */
+   box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.4), 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+}
+.font-small{
+  background-color: white;
+}
+.icontest{
+  font-size: x-large;
+  color: #C8CCCB;
+}
+#searchtest{
+  margin: 0 auto!important;
+   border-radius: 0px!important;
+}
+.formtest{
+  margin-left: 30%
+}
+
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container2:hover .image {
+  opacity: 0.3;
+}
+
+.container2:hover .middle {
+  opacity: 1;
+}
+
+
+
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.container2 {
+  position: relative;
+  width: 50%;
+}
+.iconshow{
+  font-size:60px;
+  color: gray;
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.zoom1 {
+  transition: transform .2s; /* Animation */ 
+  margin: 0 auto;
+}
+
+.zoom1:hover {
+  transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* hover slide */
+
+.containerslide{
+  position: relative;
+  width: 50%;
+}
+
+.imageslide {
+  opacity: 1;
+  display: block;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middleslide {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.containerslide:hover .imageslide {
+  opacity: 0.3;
+}
+
+.containerslide:hover .middleslide {
+  opacity: 1;
+}
+.textslide{
+ font-family: Georgia, serif;
+ text-align:center;
+ color: black;
+ margin-left:50px;
+}
 

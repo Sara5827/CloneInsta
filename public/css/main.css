@@ -313,12 +313,14 @@ input.input100 {
 .focus-input100 {
   position: absolute;
   display: block;
+
   width: calc(100% + 2px);
   height: calc(100% + 2px);
   top: -1px;
   left: -1px;
   pointer-events: none;
-  border: 1px solid #00ad5f;
+  border: 1px solid #0000FF;
+  border-radius: 25px;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: all 0.4s;

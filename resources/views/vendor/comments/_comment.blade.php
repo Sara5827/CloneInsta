@@ -6,12 +6,13 @@
 @else
   <li id="comment-{{ $comment->getKey() }}" class="media">
 @endif
-    <img class="mr-3" src="https://www.gravatar.com/avatar/{{ md5($comment->commenter->email ?? $comment->guest_email) }}.jpg?s=64" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar">
+    <img class="mr-3 rounded-circle" src="{{ asset($post->user->profile->getProfileImage()) }}" alt="test" width="40px">
     <div class="media-body">
+     <div  class="msgtest">
         <h5 class="mt-0 mb-1">{{ $comment->commenter->name ?? $comment->guest_name }} <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
-
-        <div>
+    </div>
+         <div>
             @can('reply-to-comment', $comment)
                 <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm btn-link text-uppercase">Reply</button>
             @endcan
@@ -34,7 +35,7 @@
                         <form method="POST" action="{{ route('comments.update', $comment->getKey()) }}">
                             @method('PUT')
                             @csrf
-                            <div class="modal-header">
+                            <div class="modal-header border-0">
                                 <h5 class="modal-title">Edit Comment</h5>
                                 <button type="button" class="close" data-dismiss="modal">
                                 <span>&times;</span>
@@ -44,12 +45,12 @@
                                 <div class="form-group">
                                     <label for="message">Update your message here:</label>
                                     <textarea required class="form-control" name="message" rows="3">{{ $comment->comment }}</textarea>
-                                    <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
+                                    
                                 </div>
                             </div>
-                            <div class="modal-footer">
+                            <div class="text-center mb-4">
                                 <button type="button" class="btn btn-sm btn-outline-secondary text-uppercase" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Update</button>
+                                <button type="submit" class="btn btn-sm btn-outline-primary text-uppercase">Update</button>
                             </div>
                         </form>
                     </div>
@@ -73,12 +74,11 @@
                                 <div class="form-group">
                                     <label for="message">Enter your message here:</label>
                                     <textarea required class="form-control" name="message" rows="3"></textarea>
-                                    <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
                                 </div>
                             </div>
-                            <div class="modal-footer">
+                            <div class="text-center mb-4">
                                 <button type="button" class="btn btn-sm btn-outline-secondary text-uppercase" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Reply</button>
+                                <button type="submit" class="btn btn-sm btn-outline-primary text-uppercase">Reply</button>
                             </div>
                         </form>
                     </div>
@@ -86,7 +86,7 @@
             </div>
         @endcan
 
-        <br />{{-- Margin bottom --}}
+       {{-- Margin bottom --}}
 
         {{-- Recursion for children --}}
         @if($grouped_comments->has($comment->getKey()))

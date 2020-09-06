@@ -7,7 +7,7 @@
             @foreach ($posts as $post)
                 <div class="col-4 col-md-4 mb-4">
 
-                    <div class="card">
+                    <div class="card zoom">
 
                         <!-- Post Image -->
                         <a href="/p/{{ $post->id }}" style='height: 320px; width: auto'>

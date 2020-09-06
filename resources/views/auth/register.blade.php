@@ -1,6 +1,21 @@
 @extends('layouts.authlayout')
 
 @section('form')
+<style>
+    .input100{
+       border-radius: 40px 40px 40px 40px!important;
+       background-color: #E8F0FE;
+    }
+    .wrap-input100{
+        border: none;
+    }
+    .login100-form-btn{
+     border-radius: 40px 40px 40px 40px;
+     background-color: blue; 
+    }
+ </style>
+ 
+ <div class="login100-more"> <img src="{{ asset('img/selfilogin.gif') }}" width="100%" height="100%" alt="img-login" /></div>
     <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
         @csrf
         <span class="login100-form-title p-b-34">
@@ -67,7 +82,7 @@
         </div>
 
         <div class="w-full text-center m-t-49">
-            <a href="{{ route('login') }}" class="txt3 ">
+            <a href="{{ route('login') }}" class="txt3 text-primary">
                 Login
             </a>
         </div>

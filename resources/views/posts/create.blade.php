@@ -5,13 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>New Post</h4>
-                </div>
+            <div class="card shado">
+               
 
                 <div class="card-body">
-                
+                     <h2 class="text-center edit m-4">New Post</h2>
                     <form action="/p/" method="post" enctype="multipart/form-data">
                         @csrf
 
@@ -52,7 +50,7 @@
                             
                         <div class="form-group row mb-0 ">
                             <div class="col-md-6 offset-md-4">
-                                <button  type="submit" class="btn btn-primary">
+                                <button  type="submit" class="btn btn-primary btnedit w-100">
                                     Share
                                 </button>
                             </div>

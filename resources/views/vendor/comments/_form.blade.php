@@ -1,5 +1,5 @@
-<div class="card">
-    <div class="card-body">
+<div class=" border-0">
+   
         @if($errors->has('commentable_type'))
             <div class="alert alert-danger" role="alert">
                 {{ $errors->first('commentable_type') }}
@@ -38,16 +38,15 @@
                 </div>
             @endif
 
-            <div class="form-group">
-                <label for="message">Enter your message here:</label>
-                <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" rows="3"></textarea>
+            <div class="form-group d-flex">
+                <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" rows="1"></textarea>
+                <button type="submit" class="btn btn-sm btn-outline-primary text-uppercase" id="submitbtn">Submit</button>
+              
                 <div class="invalid-feedback">
                     Your message is required.
                 </div>
-                <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
             </div>
-            <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Submit</button>
+            
         </form>
-    </div>
+    
 </div>
-<br />
