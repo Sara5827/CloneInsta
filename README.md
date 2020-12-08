@@ -1,6 +1,7 @@
 # InstaClone
 
-An Instagram Clone using Laravel
+ An Instagram Clone. The frontend is built with Boostrap and the backend with Laravel
+
  <img src="FireShot Capture 081 - Laravel - 127.0.0.1.jpg" alt="Instagram" > 
 
 ## Getting started
