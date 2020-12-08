@@ -1,8 +1,7 @@
 # InstaClone
 
 An Instagram Clone using Laravel
-
-![alt text](FireShot Capture 081 - Laravel - 127.0.0.1.jpg)
+ <img src="FireShot Capture 081 - Laravel - 127.0.0.1.jpg" alt="Instagram" > 
 
 ## Getting started
 1. Clone project `git clone https://github.com/KhalidLam/instagramClone.gitL`
